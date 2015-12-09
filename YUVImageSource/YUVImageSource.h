@@ -8,12 +8,11 @@ namespace YUVImageSource
 
 		ImageSource();
 
-		Platform::Boolean createDevice();
+		Platform::Boolean createTexture(const Platform::Array<byte>^ bytes, int width, int height);
 
-		Platform::Boolean createTexture2D(const Platform::Array<byte>^ bytes, int width, int height);
+		Platform::Boolean createImageSource();
 
-		Platform::Boolean getSurfaceFromTexture2D();
+		void process();
 
-		Platform::Boolean getImageSourceFromSurface();
     };
 }

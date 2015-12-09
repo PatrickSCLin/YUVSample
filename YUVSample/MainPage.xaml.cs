@@ -46,11 +46,11 @@ namespace YUVSample
 
             imageSource = new YUVImageSource.ImageSource();
 
-            if (imageSource.createDevice() == true && imageSource.createTexture2D(videoSource, 4000, 3000) == true && 
-                imageSource.getSurfaceFromTexture2D() == true && imageSource.getImageSourceFromSurface() == true)
-            {
-                
-            }
+            imageSource.createTexture(videoSource, 4000, 3000);
+
+            imageSource.createImageSource();
+
+            imageSource.process();
         }
 
         #endregion
