@@ -44,7 +44,7 @@ namespace YUVSample
         {
             this.InitializeComponent();
 
-            videoSource = File.ReadAllBytes("sample.yuv");
+            videoSource = File.ReadAllBytes("output.yuv");
 
             imageSource = new YUVImageSource.ImageSource();
 

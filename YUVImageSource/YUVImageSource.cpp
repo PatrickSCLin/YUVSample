@@ -125,7 +125,7 @@ bool createImageSourceFromDxgi()
 
 		if (result == S_OK)
 		{
-			result = context->CreateImageSourceFromDxgi(&d3d_surface, 1, DXGI_COLOR_SPACE_TYPE::DXGI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS::D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION, &d2d_image_source);
+			result = context->CreateImageSourceFromDxgi(&d3d_surface, 1, DXGI_COLOR_SPACE_TYPE::DXGI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601, D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS::D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE, &d2d_image_source);
 		}
 	}
 
