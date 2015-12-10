@@ -32,6 +32,8 @@ namespace YUVSample
 
         CanvasSwapChain swapChain;
 
+        CanvasVirtualBitmap video;
+
         YUVImageSource.ImageSource imageSource;
 
         byte[] videoSource = null;
@@ -50,7 +52,9 @@ namespace YUVSample
 
             imageSource.createImageSource();
 
-            imageSource.process();
+            device = imageSource.getCanvasDevice();
+
+            video = imageSource.getCanvasVirtualBitmap();
         }
 
         #endregion
@@ -60,8 +64,6 @@ namespace YUVSample
         private void swapChainPanel_Loaded(object sender, RoutedEventArgs e)
         {
             var swapChainPanel = sender as CanvasSwapChainPanel;
-
-            this.device = CanvasDevice.GetSharedDevice();
 
             this.swapChain = new CanvasSwapChain(this.device, (float)swapChainPanel.ActualWidth, (float)swapChainPanel.ActualHeight, 96);
 
@@ -92,7 +94,7 @@ namespace YUVSample
         {
             using (var session = swapChain.CreateDrawingSession(Colors.Black))
             {
-                
+                session.DrawImage(this.video, new Rect(0, 0, this.swapChain.Size.Width, this.swapChain.Size.Height), new Rect(0, 0, 4000, 3000));
             }
 
             this.swapChain.Present();

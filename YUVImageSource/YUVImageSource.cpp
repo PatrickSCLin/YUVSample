@@ -3,6 +3,8 @@
 
 using namespace YUVImageSource;
 using namespace Platform;
+using namespace Microsoft::Graphics::Canvas;
+using namespace Microsoft::WRL;
 
 static ID3D11DeviceContext* d3d_device_context = nullptr;
 
@@ -149,7 +151,16 @@ Platform::Boolean ImageSource::createImageSource()
 
 // TODO interop ID2D1ImageSource to CanvasVirtualBitmap
 
-void ImageSource::process()
+CanvasDevice^ ImageSource::getCanvasDevice()
 {
-	
+	CanvasDevice^ device = GetOrCreate<CanvasDevice>(d2d_device);
+
+	return device;
+}
+
+CanvasVirtualBitmap^ ImageSource::getCanvasVirtualBitmap()
+{
+	CanvasVirtualBitmap^ bitmap = GetOrCreate<CanvasVirtualBitmap>(this->getCanvasDevice(), d2d_image_source);
+
+	return bitmap;
 }

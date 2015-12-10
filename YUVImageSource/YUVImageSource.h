@@ -12,7 +12,9 @@ namespace YUVImageSource
 
 		Platform::Boolean createImageSource();
 
-		void process();
+		Microsoft::Graphics::Canvas::CanvasDevice^ getCanvasDevice();
+
+		Microsoft::Graphics::Canvas::CanvasVirtualBitmap^ getCanvasVirtualBitmap();
 
     };
 }
